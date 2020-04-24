@@ -1,0 +1,1 @@
+bindgen.exe --no-layout-tests -o fast_noise.rs ../FastNoiseSIMD.h
