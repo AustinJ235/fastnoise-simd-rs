@@ -1,1 +1,0 @@
-bindgen --no-layout-tests  -o fast_noise.rs ./cpp_src/FastNoiseSIMD.h -- -std=c++11 -x c++

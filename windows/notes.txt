@@ -1,8 +1,0 @@
-Generates dynamic obj's & dll
-- cl /LD /O2 /Ot /arch:AVX *.cpp
-
-Generates obj's
-- cl /c /O2 /Ot /arch:AVX *.cpp
-
-Generates lib
-- lib FastNoiseSIMD.obj

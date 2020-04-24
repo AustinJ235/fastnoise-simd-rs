@@ -52,25 +52,25 @@ pub const FastNoiseSIMD_NoiseType_WhiteNoise: FastNoiseSIMD_NoiseType = 6;
 pub const FastNoiseSIMD_NoiseType_Cellular: FastNoiseSIMD_NoiseType = 7;
 pub const FastNoiseSIMD_NoiseType_Cubic: FastNoiseSIMD_NoiseType = 8;
 pub const FastNoiseSIMD_NoiseType_CubicFractal: FastNoiseSIMD_NoiseType = 9;
-pub type FastNoiseSIMD_NoiseType = u32;
+pub type FastNoiseSIMD_NoiseType = i32;
 pub const FastNoiseSIMD_FractalType_FBM: FastNoiseSIMD_FractalType = 0;
 pub const FastNoiseSIMD_FractalType_Billow: FastNoiseSIMD_FractalType = 1;
 pub const FastNoiseSIMD_FractalType_RigidMulti: FastNoiseSIMD_FractalType = 2;
-pub type FastNoiseSIMD_FractalType = u32;
+pub type FastNoiseSIMD_FractalType = i32;
 pub const FastNoiseSIMD_PerturbType_None: FastNoiseSIMD_PerturbType = 0;
 pub const FastNoiseSIMD_PerturbType_Gradient: FastNoiseSIMD_PerturbType = 1;
 pub const FastNoiseSIMD_PerturbType_GradientFractal: FastNoiseSIMD_PerturbType = 2;
 pub const FastNoiseSIMD_PerturbType_Normalise: FastNoiseSIMD_PerturbType = 3;
 pub const FastNoiseSIMD_PerturbType_Gradient_Normalise: FastNoiseSIMD_PerturbType = 4;
 pub const FastNoiseSIMD_PerturbType_GradientFractal_Normalise: FastNoiseSIMD_PerturbType = 5;
-pub type FastNoiseSIMD_PerturbType = u32;
+pub type FastNoiseSIMD_PerturbType = i32;
 pub const FastNoiseSIMD_CellularDistanceFunction_Euclidean: FastNoiseSIMD_CellularDistanceFunction =
     0;
 pub const FastNoiseSIMD_CellularDistanceFunction_Manhattan: FastNoiseSIMD_CellularDistanceFunction =
     1;
 pub const FastNoiseSIMD_CellularDistanceFunction_Natural: FastNoiseSIMD_CellularDistanceFunction =
     2;
-pub type FastNoiseSIMD_CellularDistanceFunction = u32;
+pub type FastNoiseSIMD_CellularDistanceFunction = i32;
 pub const FastNoiseSIMD_CellularReturnType_CellValue: FastNoiseSIMD_CellularReturnType = 0;
 pub const FastNoiseSIMD_CellularReturnType_Distance: FastNoiseSIMD_CellularReturnType = 1;
 pub const FastNoiseSIMD_CellularReturnType_Distance2: FastNoiseSIMD_CellularReturnType = 2;
@@ -80,33 +80,328 @@ pub const FastNoiseSIMD_CellularReturnType_Distance2Mul: FastNoiseSIMD_CellularR
 pub const FastNoiseSIMD_CellularReturnType_Distance2Div: FastNoiseSIMD_CellularReturnType = 6;
 pub const FastNoiseSIMD_CellularReturnType_NoiseLookup: FastNoiseSIMD_CellularReturnType = 7;
 pub const FastNoiseSIMD_CellularReturnType_Distance2Cave: FastNoiseSIMD_CellularReturnType = 8;
-pub type FastNoiseSIMD_CellularReturnType = u32;
+pub type FastNoiseSIMD_CellularReturnType = i32;
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD18s_currentSIMDLevelE"]
+    #[link_name = "\u{1}?s_currentSIMDLevel@FastNoiseSIMD@@1HA"]
     pub static mut FastNoiseSIMD_s_currentSIMDLevel: ::std::os::raw::c_int;
 }
+#[test]
+fn bindgen_test_layout_FastNoiseSIMD() {
+    assert_eq!(
+        ::std::mem::size_of::<FastNoiseSIMD>(),
+        112usize,
+        concat!("Size of: ", stringify!(FastNoiseSIMD))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<FastNoiseSIMD>(),
+        8usize,
+        concat!("Alignment of ", stringify!(FastNoiseSIMD))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_seed as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_seed)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_frequency as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_frequency)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_noiseType as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_noiseType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_xScale as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_xScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_yScale as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_yScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_zScale as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_zScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_octaves as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_octaves)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_lacunarity as *const _ as usize },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_lacunarity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_gain as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_gain)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_fractalType as *const _ as usize },
+        44usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_fractalType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_fractalBounding as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_fractalBounding)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_cellularDistanceFunction as *const _
+                as usize
+        },
+        52usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_cellularDistanceFunction)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_cellularReturnType as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_cellularReturnType)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_cellularNoiseLookupType as *const _ as usize
+        },
+        60usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_cellularNoiseLookupType)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_cellularNoiseLookupFrequency as *const _
+                as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_cellularNoiseLookupFrequency)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_cellularDistanceIndex0 as *const _ as usize
+        },
+        68usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_cellularDistanceIndex0)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_cellularDistanceIndex1 as *const _ as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_cellularDistanceIndex1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_cellularJitter as *const _ as usize },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_cellularJitter)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_perturbType as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_perturbType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_perturbAmp as *const _ as usize },
+        84usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_perturbAmp)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_perturbFrequency as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_perturbFrequency)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_perturbOctaves as *const _ as usize },
+        92usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_perturbOctaves)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_perturbLacunarity as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_perturbLacunarity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseSIMD>())).m_perturbGain as *const _ as usize },
+        100usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_perturbGain)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_perturbFractalBounding as *const _ as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_perturbFractalBounding)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<FastNoiseSIMD>())).m_perturbNormaliseLength as *const _ as usize
+        },
+        108usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseSIMD),
+            "::",
+            stringify!(m_perturbNormaliseLength)
+        )
+    );
+}
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD16NewFastNoiseSIMDEi"]
+    #[link_name = "\u{1}?NewFastNoiseSIMD@FastNoiseSIMD@@SAPEAV1@H@Z"]
     pub fn FastNoiseSIMD_NewFastNoiseSIMD(seed: ::std::os::raw::c_int) -> *mut FastNoiseSIMD;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD12GetSIMDLevelEv"]
+    #[link_name = "\u{1}?GetSIMDLevel@FastNoiseSIMD@@SAHXZ"]
     pub fn FastNoiseSIMD_GetSIMDLevel() -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD12FreeNoiseSetEPf"]
+    #[link_name = "\u{1}?FreeNoiseSet@FastNoiseSIMD@@SAXPEAM@Z"]
     pub fn FastNoiseSIMD_FreeNoiseSet(noiseSet: *mut f32);
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD11GetEmptySetEi"]
+    #[link_name = "\u{1}?GetEmptySet@FastNoiseSIMD@@SAPEAMH@Z"]
     pub fn FastNoiseSIMD_GetEmptySet(size: ::std::os::raw::c_int) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD11AlignedSizeEi"]
+    #[link_name = "\u{1}?AlignedSize@FastNoiseSIMD@@SAHH@Z"]
     pub fn FastNoiseSIMD_AlignedSize(size: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD28SetCellularDistance2IndiciesEii"]
+    #[link_name = "\u{1}?SetCellularDistance2Indicies@FastNoiseSIMD@@QEAAXHH@Z"]
     pub fn FastNoiseSIMD_SetCellularDistance2Indicies(
         this: *mut FastNoiseSIMD,
         cellularDistanceIndex0: ::std::os::raw::c_int,
@@ -114,7 +409,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD12GetVectorSetEiii"]
+    #[link_name = "\u{1}?GetVectorSet@FastNoiseSIMD@@SAPEAUFastNoiseVectorSet@@HHH@Z"]
     pub fn FastNoiseSIMD_GetVectorSet(
         xSize: ::std::os::raw::c_int,
         ySize: ::std::os::raw::c_int,
@@ -122,7 +417,7 @@ extern "C" {
     ) -> *mut FastNoiseVectorSet;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD20GetSamplingVectorSetEiiii"]
+    #[link_name = "\u{1}?GetSamplingVectorSet@FastNoiseSIMD@@SAPEAUFastNoiseVectorSet@@HHHH@Z"]
     pub fn FastNoiseSIMD_GetSamplingVectorSet(
         sampleScale: ::std::os::raw::c_int,
         xSize: ::std::os::raw::c_int,
@@ -131,7 +426,7 @@ extern "C" {
     ) -> *mut FastNoiseVectorSet;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD13FillVectorSetEP18FastNoiseVectorSetiii"]
+    #[link_name = "\u{1}?FillVectorSet@FastNoiseSIMD@@SAXPEAUFastNoiseVectorSet@@HHH@Z"]
     pub fn FastNoiseSIMD_FillVectorSet(
         vectorSet: *mut FastNoiseVectorSet,
         xSize: ::std::os::raw::c_int,
@@ -140,7 +435,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD21FillSamplingVectorSetEP18FastNoiseVectorSetiiii"]
+    #[link_name = "\u{1}?FillSamplingVectorSet@FastNoiseSIMD@@SAXPEAUFastNoiseVectorSet@@HHHH@Z"]
     pub fn FastNoiseSIMD_FillSamplingVectorSet(
         vectorSet: *mut FastNoiseVectorSet,
         sampleScale: ::std::os::raw::c_int,
@@ -150,7 +445,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD11GetNoiseSetEiiiiiif"]
+    #[link_name = "\u{1}?GetNoiseSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetNoiseSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -163,7 +458,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD12FillNoiseSetEPfiiiiiif"]
+    #[link_name = "\u{1}?FillNoiseSet@FastNoiseSIMD@@QEAAXPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_FillNoiseSet(
         this: *mut FastNoiseSIMD,
         noiseSet: *mut f32,
@@ -177,7 +472,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD12FillNoiseSetEPfP18FastNoiseVectorSetfff"]
+    #[link_name = "\u{1}?FillNoiseSet@FastNoiseSIMD@@QEAAXPEAMPEAUFastNoiseVectorSet@@MMM@Z"]
     pub fn FastNoiseSIMD_FillNoiseSet1(
         this: *mut FastNoiseSIMD,
         noiseSet: *mut f32,
@@ -188,7 +483,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD18GetSampledNoiseSetEiiiiiii"]
+    #[link_name = "\u{1}?GetSampledNoiseSet@FastNoiseSIMD@@QEAAPEAMHHHHHHH@Z"]
     pub fn FastNoiseSIMD_GetSampledNoiseSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -201,7 +496,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD16GetWhiteNoiseSetEiiiiiif"]
+    #[link_name = "\u{1}?GetWhiteNoiseSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetWhiteNoiseSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -214,7 +509,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD11GetValueSetEiiiiiif"]
+    #[link_name = "\u{1}?GetValueSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetValueSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -227,7 +522,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD18GetValueFractalSetEiiiiiif"]
+    #[link_name = "\u{1}?GetValueFractalSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetValueFractalSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -240,7 +535,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD12GetPerlinSetEiiiiiif"]
+    #[link_name = "\u{1}?GetPerlinSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetPerlinSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -253,7 +548,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD19GetPerlinFractalSetEiiiiiif"]
+    #[link_name = "\u{1}?GetPerlinFractalSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetPerlinFractalSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -266,7 +561,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD13GetSimplexSetEiiiiiif"]
+    #[link_name = "\u{1}?GetSimplexSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetSimplexSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -279,7 +574,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD20GetSimplexFractalSetEiiiiiif"]
+    #[link_name = "\u{1}?GetSimplexFractalSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetSimplexFractalSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -292,7 +587,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD14GetCellularSetEiiiiiif"]
+    #[link_name = "\u{1}?GetCellularSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetCellularSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -305,7 +600,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD11GetCubicSetEiiiiiif"]
+    #[link_name = "\u{1}?GetCubicSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetCubicSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -318,7 +613,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD18GetCubicFractalSetEiiiiiif"]
+    #[link_name = "\u{1}?GetCubicFractalSet@FastNoiseSIMD@@QEAAPEAMHHHHHHM@Z"]
     pub fn FastNoiseSIMD_GetCubicFractalSet(
         this: *mut FastNoiseSIMD,
         xStart: ::std::os::raw::c_int,
@@ -331,7 +626,7 @@ extern "C" {
     ) -> *mut f32;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN13FastNoiseSIMD24CalculateFractalBoundingEif"]
+    #[link_name = "\u{1}?CalculateFractalBounding@FastNoiseSIMD@@KAMHM@Z"]
     pub fn FastNoiseSIMD_CalculateFractalBounding(octaves: ::std::os::raw::c_int, gain: f32)
         -> f32;
 }
@@ -720,12 +1015,105 @@ pub struct FastNoiseVectorSet {
     pub sampleSizeY: ::std::os::raw::c_int,
     pub sampleSizeZ: ::std::os::raw::c_int,
 }
+#[test]
+fn bindgen_test_layout_FastNoiseVectorSet() {
+    assert_eq!(
+        ::std::mem::size_of::<FastNoiseVectorSet>(),
+        48usize,
+        concat!("Size of: ", stringify!(FastNoiseVectorSet))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<FastNoiseVectorSet>(),
+        8usize,
+        concat!("Alignment of ", stringify!(FastNoiseVectorSet))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseVectorSet>())).size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseVectorSet),
+            "::",
+            stringify!(size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseVectorSet>())).xSet as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseVectorSet),
+            "::",
+            stringify!(xSet)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseVectorSet>())).ySet as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseVectorSet),
+            "::",
+            stringify!(ySet)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseVectorSet>())).zSet as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseVectorSet),
+            "::",
+            stringify!(zSet)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseVectorSet>())).sampleScale as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseVectorSet),
+            "::",
+            stringify!(sampleScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseVectorSet>())).sampleSizeX as *const _ as usize },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseVectorSet),
+            "::",
+            stringify!(sampleSizeX)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseVectorSet>())).sampleSizeY as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseVectorSet),
+            "::",
+            stringify!(sampleSizeY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<FastNoiseVectorSet>())).sampleSizeZ as *const _ as usize },
+        44usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FastNoiseVectorSet),
+            "::",
+            stringify!(sampleSizeZ)
+        )
+    );
+}
 extern "C" {
-    #[link_name = "\u{1}_ZN18FastNoiseVectorSet4FreeEv"]
+    #[link_name = "\u{1}?Free@FastNoiseVectorSet@@QEAAXXZ"]
     pub fn FastNoiseVectorSet_Free(this: *mut FastNoiseVectorSet);
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN18FastNoiseVectorSet7SetSizeEi"]
+    #[link_name = "\u{1}?SetSize@FastNoiseVectorSet@@QEAAXH@Z"]
     pub fn FastNoiseVectorSet_SetSize(this: *mut FastNoiseVectorSet, _size: ::std::os::raw::c_int);
 }
 impl FastNoiseVectorSet {
