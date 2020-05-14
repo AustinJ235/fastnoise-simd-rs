@@ -18,7 +18,6 @@ fn main() {
 
 	if is_x86_feature_detected!("sse2") {
 		build
-			.flag_if_supported("/arch:SSE2")
 			.flag_if_supported("-msse2")
 			.file("./src/cpp/FastNoiseSIMD_sse2.cpp");
 	}
@@ -41,7 +40,6 @@ fn main() {
 
 	if is_x86_feature_detected!("avx2") {
 		build
-			.flag_if_supported("/arch:AVX2")
 			.flag_if_supported("-mavx2")
 			.file("./src/cpp/FastNoiseSIMD_avx2.cpp");
 	}
