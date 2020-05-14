@@ -39,19 +39,19 @@
 
 // Comment out lines to not compile for certain instruction sets
 #define FN_COMPILE_SSE2
-#define FN_COMPILE_SSE41
+//#define FN_COMPILE_SSE41
 
 // To compile AVX2 set C++ code generation to use /arch:AVX(2) on FastNoiseSIMD_avx2.cpp
 // Note: This does not break support for pre AVX CPUs, AVX code is only run if support is detected
-#define FN_COMPILE_AVX2
+//#define FN_COMPILE_AVX2
 
 // Only the latest compilers will support this
-#define FN_COMPILE_AVX512
+//#define FN_COMPILE_AVX512
 
-// Using FMA instructions with AVX(51)2/NEON provides a small performance increase but can cause 
+// Using FMA instructions with AVX(51)2/NEON provides a small performance increase but can cause
 // minute variations in noise output compared to other SIMD levels due to higher calculation precision
 // Intel compiler will always generate FMA instructions, use /Qfma- or -no-fma to disable
-#define FN_USE_FMA
+//#define FN_USE_FMA
 #endif
 
 // Using aligned sets of memory for float arrays allows faster storing of SIMD data
@@ -62,39 +62,6 @@
 #if !(defined(_WIN64) || defined(__x86_64__) || defined(__ppc64__) || defined(__aarch64__) || defined(FN_IOS)) || defined(_DEBUG)
 #define FN_COMPILE_NO_SIMD_FALLBACK
 #endif
-
-/*
-Tested Compilers:
--MSVC v120/v140
--Intel 16.0
--GCC 4.7 Linux
--Clang MacOSX
-
-CPU instruction support:
-
-SSE2
-Intel Pentium 4 - 2001
-AMD Opteron/Athlon - 2003
-
-SEE4.1
-Intel Penryn - 2007
-AMD Bulldozer - Q4 2011
-
-AVX
-Intel Sandy Bridge - Q1 2011
-AMD Bulldozer - Q4 2011
-
-AVX2
-Intel Haswell - Q2 2013
-AMD Carrizo - Q2 2015
-
-FMA3
-Intel Haswell - Q2 2013
-AMD Piledriver - 2012
-
-AVX-512F
-Intel Skylake-X - Q2 2017
-*/
 
 struct FastNoiseVectorSet;
 
@@ -109,7 +76,7 @@ public:
 	enum CellularDistanceFunction { Euclidean, Manhattan, Natural };
 	enum CellularReturnType { CellValue, Distance, Distance2, Distance2Add, Distance2Sub, Distance2Mul, Distance2Div, NoiseLookup, Distance2Cave };
 
-	// Creates new FastNoiseSIMD for the highest supported instuction set of the CPU 
+	// Creates new FastNoiseSIMD for the highest supported instuction set of the CPU
 	static FastNoiseSIMD* NewFastNoiseSIMD(int seed = 1337);
 
 	// Returns highest detected level of CPU support
@@ -144,7 +111,6 @@ public:
 
 	// Rounds the size up to the nearest aligned size for the current SIMD level
 	static int AlignedSize(int size);
-
 
 	// Returns seed used for all noise types
 	int GetSeed(void) const { return m_seed; }
@@ -228,15 +194,15 @@ public:
 	// Default: 3
 	void SetPerturbFractalOctaves(int perturbOctaves) { m_perturbOctaves = perturbOctaves; m_perturbFractalBounding = CalculateFractalBounding(m_perturbOctaves, m_perturbGain); }
 
-	// Sets octave lacunarity for perturb fractal types 
+	// Sets octave lacunarity for perturb fractal types
 	// Default: 2.0
 	void SetPerturbFractalLacunarity(float perturbLacunarity) { m_perturbLacunarity = perturbLacunarity; }
-	
-	// Sets octave gain for perturb fractal types 
+
+	// Sets octave gain for perturb fractal types
 	// Default: 0.5
 	void SetPerturbFractalGain(float perturbGain) { m_perturbGain = perturbGain; m_perturbFractalBounding = CalculateFractalBounding(m_perturbOctaves, m_perturbGain);	}
 
-	// Sets the length for vectors after perturb normalising 
+	// Sets the length for vectors after perturb normalising
 	// Default: 1.0
 	void SetPerturbNormaliseLength(float perturbNormaliseLength) { m_perturbNormaliseLength = perturbNormaliseLength; }
 
@@ -282,7 +248,7 @@ public:
 	float* GetCellularSet(int xStart, int yStart, int zStart, int xSize, int ySize, int zSize, float scaleModifier = 1.0f);
 	virtual void FillCellularSet(float* noiseSet, int xStart, int yStart, int zStart, int xSize, int ySize, int zSize, float scaleModifier = 1.0f) = 0;
 	virtual void FillCellularSet(float* noiseSet, FastNoiseVectorSet* vectorSet, float xOffset = 0.0f, float yOffset = 0.0f, float zOffset = 0.0f) = 0;
-	
+
 	float* GetCubicSet(int xStart, int yStart, int zStart, int xSize, int ySize, int zSize, float scaleModifier = 1.0f);
 	float* GetCubicFractalSet(int xStart, int yStart, int zStart, int xSize, int ySize, int zSize, float scaleModifier = 1.0f);
 	virtual void FillCubicSet(float* noiseSet, int xStart, int yStart, int zStart, int xSize, int ySize, int zSize, float scaleModifier = 1.0f) = 0;
@@ -304,8 +270,8 @@ protected:
 	int m_octaves = 3;
 	float m_lacunarity = 2.0f;
 	float m_gain = 0.5f;
-	FractalType m_fractalType = FBM;	
-	float m_fractalBounding;	
+	FractalType m_fractalType = FBM;
+	float m_fractalBounding;
 
 	CellularDistanceFunction m_cellularDistanceFunction = Euclidean;
 	CellularReturnType m_cellularReturnType = Distance;
