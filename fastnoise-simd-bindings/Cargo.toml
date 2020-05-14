@@ -1,6 +1,6 @@
 [package]
 name = "fastnoise_simd_bindings"
-version = "0.0.2"
+version = "0.1.0"
 authors = ["Austin Johnson <me@austinj.me>"]
 edition = "2018"
 repository = "https://github.com/AustinJ235/fastnoise-simd-rs"
